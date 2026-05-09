@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .glow-btn {
+    @apply px-8 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center gap-2 relative overflow-hidden;
+  }
+
+  .glow-btn-primary {
+    @apply bg-gradient-to-r text-white shadow-lg hover:shadow-2xl hover:scale-105;
+    background: linear-gradient(to right, #F48024, #007791);
+  }
+
+  .glow-btn-primary:hover {
+    box-shadow: 0 0 10px #F48024, 0 0 15px rgba(244, 128, 36, 0.5);
+  }
+
+  .glow-btn-secondary {
+    @apply border-2 border-secondary text-secondary px-6 py-2.5 rounded-lg font-semibold hover:bg-secondary hover:text-white hover:shadow-lg transition-all duration-300;
+  }
+}
+
