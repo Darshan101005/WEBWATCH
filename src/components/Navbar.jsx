@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/webwatch-logo.png';
 
 export default function Navbar() {
@@ -8,9 +9,9 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-gray-200/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="Webwatch" className="h-14 w-auto rounded-lg hover:scale-110 transition-transform duration-300" />
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-gray-700 font-medium transition-all duration-300 relative group">
@@ -28,12 +29,12 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <button className="glow-btn-secondary">
+            <Link to="/login" className="glow-btn-secondary">
               Login
-            </button>
-            <button className="glow-btn glow-btn-primary">
+            </Link>
+            <Link to="/signup" className="glow-btn glow-btn-primary">
               Sign Up
-            </button>
+            </Link>
           </div>
 
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -49,8 +50,8 @@ export default function Navbar() {
             <a href="#pricing" className="block text-gray-700 font-medium py-2">Pricing</a>
             <a href="#about" className="block text-gray-700 font-medium py-2">About</a>
             <div className="flex gap-2 pt-2">
-              <button className="flex-1 glow-btn-secondary">Login</button>
-              <button className="flex-1 glow-btn glow-btn-primary">Sign Up</button>
+              <Link to="/login" className="flex-1 glow-btn-secondary block text-center">Login</Link>
+              <Link to="/signup" className="flex-1 glow-btn glow-btn-primary block text-center">Sign Up</Link>
             </div>
           </div>
         )}

@@ -1,4 +1,5 @@
 import { ChevronRight, Activity, Bell, TrendingUp, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import heroImage from '../assets/hero-section.png';
 
 export default function Landing() {
@@ -25,10 +26,10 @@ export default function Landing() {
             <p className="text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl">
               Real-time uptime monitoring and status page platform. Detect downtime instantly and keep your users informed.
             </p>
-            <button className="glow-btn glow-btn-primary">
+            <Link to="/signup" className="glow-btn glow-btn-primary">
               Get Started
               <ChevronRight size={20} />
-            </button>
+            </Link>
           </div>
 
           <div className="hidden lg:flex justify-center items-center">
@@ -116,10 +117,10 @@ export default function Landing() {
             Ready to Monitor Your <span style={{backgroundImage: 'linear-gradient(to right, #F48024, #007791)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Infrastructure?</span>
           </h2>
           <p className="text-xl text-gray-600">Join thousands of companies trusting Webwatch for their uptime needs</p>
-          <button className="glow-btn glow-btn-primary text-lg">
+          <Link to="/signup" className="glow-btn glow-btn-primary text-lg">
             Get Started Now
             <ChevronRight size={24} />
-          </button>
+          </Link>
         </div>
       </section>
     </div>
