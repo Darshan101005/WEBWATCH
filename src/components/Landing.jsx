@@ -1,16 +1,17 @@
 import { ChevronRight, Activity, Bell, TrendingUp, Globe } from 'lucide-react';
+import heroImage from '../assets/hero-section.png';
 
 export default function Landing() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Full Viewport Height */}
-      <section className="relative h-[100vh-80px] min-h-screen px-4 sm:px-6 lg:px-8 py-20 flex items-center overflow-hidden">
+      <section className="relative min-h-[calc(100vh-80px)] px-4 sm:px-6 lg:px-0 py-0 flex items-center overflow-hidden">
         <div className="absolute inset-0 opacity-5 -z-10">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl"></div>
           <div className="absolute top-40 right-1/4 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10 w-full">
+        <div className="max-w-7xl mx-auto relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="max-w-3xl">
             <h1 className="text-5xl lg:text-6xl font-black leading-tight text-dark mb-2">
               Keep Your
@@ -28,6 +29,10 @@ export default function Landing() {
               Get Started
               <ChevronRight size={20} />
             </button>
+          </div>
+
+          <div className="hidden lg:flex justify-center items-center">
+            <img src={heroImage} alt="Hero Section" className="max-w-full h-auto" />
           </div>
         </div>
       </section>

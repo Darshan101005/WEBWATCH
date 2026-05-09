@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+button, a {
+  cursor: pointer;
+}
+
 @layer components {
   .glow-btn {
     @apply px-8 py-3 rounded-lg font-semibold transition-all duration-300 inline-flex items-center gap-2 relative overflow-hidden;
