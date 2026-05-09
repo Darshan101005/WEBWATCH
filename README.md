@@ -1,16 +1,74 @@
-# React + Vite
+# Webwatch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive uptime monitoring and status page platform for tracking website availability and performance metrics in real-time.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Webwatch provides businesses with reliable monitoring solutions to track their infrastructure health, detect downtime incidents instantly, and maintain transparent communication with stakeholders through customizable status pages.
 
-## React Compiler
+## Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Frontend**
+- React.js
+- Vite
 
-## Expanding the ESLint configuration
+**Backend**
+- Node.js
+- Express.js
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Database**
+- MongoDB
+
+## Features
+
+- **Real-time Monitoring**: Continuous tracking of website status and response times
+- **Incident Detection**: Automatic identification and logging of downtime events
+- **Performance Analytics**: Historical uptime statistics and performance metrics
+- **Status Page**: Customizable public status page for transparent communication
+- **Alert System**: Configurable notifications for critical events and outages
+- **Comprehensive Dashboard**: Analytics and monitoring interface for infrastructure management
+
+## Installation
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- MongoDB instance
+
+### Setup
+
+1. Clone the repository
+```bash
+git clone https://github.com/Darshan101005/WEBWATCH.git
+cd WEBWATCH
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Configure environment variables
+```bash
+cp .env.example .env
+```
+
+4. Start the development server
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Development
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Preview Production Build
+```bash
+npm run preview
+```
+
