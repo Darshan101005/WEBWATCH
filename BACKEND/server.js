@@ -14,6 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 
 await connectDB();
 
+// Health check endpoint for UptimeRobot monitoring
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'API is running' });
+});
+
 app.use('/api/auth', authRoutes);
 
 app.get('/api/health', (req, res) => {
