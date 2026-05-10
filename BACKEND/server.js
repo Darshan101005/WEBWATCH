@@ -8,7 +8,17 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// CORS configuration
+app.use(cors({
+  origin: [
+    'http://localhost:5173',      // Local development
+    'http://localhost:3000',       // Local testing
+    'https://webwatch-frontend.onrender.com', // Production frontend (update with your frontend URL)
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

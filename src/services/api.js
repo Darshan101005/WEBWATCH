@@ -1,4 +1,8 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = import.meta.env.VITE_API_URL;
+
+if (!API_URL) {
+  throw new Error('VITE_API_URL is not configured');
+}
 
 export const signup = async (name, email, password) => {
   const response = await fetch(`${API_URL}/auth/signup`, {
