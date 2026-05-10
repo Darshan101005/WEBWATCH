@@ -14,18 +14,18 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-700 font-medium transition-all duration-300 relative group">
+            <Link to="/features" className="text-gray-700 font-medium transition-all duration-300 relative group">
               Features
               <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" style={{backgroundImage: 'linear-gradient(to right, #F48024, #007791)'}}></span>
-            </a>
-            <a href="#pricing" className="text-gray-700 font-medium transition-all duration-300 relative group">
+            </Link>
+            <Link to="/pricing" className="text-gray-700 font-medium transition-all duration-300 relative group">
               Pricing
               <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" style={{backgroundImage: 'linear-gradient(to right, #F48024, #007791)'}}></span>
-            </a>
-            <a href="#about" className="text-gray-700 font-medium transition-all duration-300 relative group">
+            </Link>
+            <Link to="/about" className="text-gray-700 font-medium transition-all duration-300 relative group">
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" style={{backgroundImage: 'linear-gradient(to right, #F48024, #007791)'}}></span>
-            </a>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -46,9 +46,9 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="md:hidden pb-4 space-y-3">
-            <a href="#features" className="block text-gray-700 font-medium py-2">Features</a>
-            <a href="#pricing" className="block text-gray-700 font-medium py-2">Pricing</a>
-            <a href="#about" className="block text-gray-700 font-medium py-2">About</a>
+            <Link to="/features" className="block text-gray-700 font-medium py-2">Features</Link>
+            <Link to="/pricing" className="block text-gray-700 font-medium py-2">Pricing</Link>
+            <Link to="/about" className="block text-gray-700 font-medium py-2">About</Link>
             <div className="flex gap-2 pt-2">
               <Link to="/login" className="flex-1 glow-btn-secondary block text-center">Login</Link>
               <Link to="/signup" className="flex-1 glow-btn glow-btn-primary block text-center">Sign Up</Link>
