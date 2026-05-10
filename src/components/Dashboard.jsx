@@ -1,10 +1,16 @@
-import { useState, useEffect } from 'react';
-import { Activity, AlertCircle, Globe, Wrench, Users, Zap, MoreVertical, LogOut, Sun, Moon } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { 
+  BarChart2, Settings, Plus, Activity, AlertCircle, 
+  Globe, Wrench, Users, Zap, MoreVertical, LogOut, Sun, Moon, 
+  ArrowRight, Search, Menu, CheckCircle2, ChevronRight
+} from 'lucide-react';
+import CreateMonitor from './CreateMonitor';
 import AccountSettings from './AccountSettings';
 import webwatchLogo from '../assets/webwatch-logo.png';
 
 export default function Dashboard() {
   const [activeNav, setActiveNav] = useState('monitoring');
+  const [showCreateMonitor, setShowCreateMonitor] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [theme, setTheme] = useState(() => {
@@ -154,58 +160,65 @@ export default function Dashboard() {
       </aside>
 
       <main className="flex-1 overflow-auto" style={{backgroundColor: currentColors.mainBg}}>
-        <div className="p-8">
-          <div className="max-w-7xl">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold capitalize" style={{color: currentColors.text}}>
-                {navItems.find(item => item.id === activeNav)?.label}
-              </h2>
-              <button
-                onClick={() => setTheme(isDark ? 'light' : 'dark')}
-                className="p-2 rounded-lg transition-all"
-                style={{backgroundColor: currentColors.border, color: currentColors.text}}
-                title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-              >
-                {isDark ? <Sun size={24} /> : <Moon size={24} />}
-              </button>
-            </div>
-
-            {activeNav === 'monitoring' && (
-              <div className="rounded-lg border p-8 text-center" style={{backgroundColor: currentColors.cardBg, borderColor: currentColors.border}}>
-                <Activity size={48} className="mx-auto mb-4" style={{color: '#F48024'}} />
-                <h3 className="text-xl font-bold mb-2" style={{color: currentColors.text}}>No monitors yet</h3>
-                <p className="mb-6" style={{color: currentColors.textMuted}}>Create your first monitor to start tracking uptime</p>
-                <button className="text-white font-semibold py-2 px-6 rounded-lg transition-all glow-btn glow-btn-primary">
-                  + Create Monitor
+        {showCreateMonitor ? (
+          <CreateMonitor onClose={() => setShowCreateMonitor(false)} theme={theme} />
+        ) : (
+          <div className="p-8">
+            <div className="max-w-7xl">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-3xl font-bold capitalize" style={{color: currentColors.text}}>
+                  {navItems.find(item => item.id === activeNav)?.label}
+                </h2>
+                <button
+                  onClick={() => setTheme(isDark ? 'light' : 'dark')}
+                  className="p-2 rounded-lg transition-all"
+                  style={{backgroundColor: currentColors.border, color: currentColors.text}}
+                  title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+                >
+                  {isDark ? <Sun size={24} /> : <Moon size={24} />}
                 </button>
               </div>
-            )}
 
-            {activeNav === 'incidents' && (
-              <div className="rounded-lg border p-8 text-center" style={{backgroundColor: currentColors.cardBg, borderColor: currentColors.border}}>
-                <AlertCircle size={48} className="mx-auto mb-4" style={{color: currentColors.textMuted}} />
-                <h3 className="text-xl font-bold mb-2" style={{color: currentColors.text}}>No incidents</h3>
-                <p style={{color: currentColors.textMuted}}>All systems operational</p>
-              </div>
-            )}
+              {activeNav === 'monitoring' && (
+                <div className="rounded-lg border p-8 text-center" style={{backgroundColor: currentColors.cardBg, borderColor: currentColors.border}}>
+                  <Activity size={48} className="mx-auto mb-4" style={{color: '#F48024'}} />
+                  <h3 className="text-xl font-bold mb-2" style={{color: currentColors.text}}>No monitors yet</h3>
+                  <p className="mb-6" style={{color: currentColors.textMuted}}>Create your first monitor to start tracking uptime</p>
+                  <button 
+                    onClick={() => setShowCreateMonitor(true)}
+                    className="text-white font-semibold py-2 px-6 rounded-lg transition-all glow-btn glow-btn-primary"
+                  >
+                    + Create Monitor
+                  </button>
+                </div>
+              )}
 
-            {activeNav === 'status' && (
-              <div className="rounded-lg border p-8 text-center" style={{backgroundColor: currentColors.cardBg, borderColor: currentColors.border}}>
-                <Globe size={48} className="mx-auto mb-4" style={{color: currentColors.textMuted}} />
-                <h3 className="text-xl font-bold mb-2" style={{color: currentColors.text}}>No status pages</h3>
-                <p style={{color: currentColors.textMuted}}>Create a status page to share with your users</p>
-              </div>
-            )}
+              {activeNav === 'incidents' && (
+                <div className="rounded-lg border p-8 text-center" style={{backgroundColor: currentColors.cardBg, borderColor: currentColors.border}}>
+                  <AlertCircle size={48} className="mx-auto mb-4" style={{color: currentColors.textMuted}} />
+                  <h3 className="text-xl font-bold mb-2" style={{color: currentColors.text}}>No incidents</h3>
+                  <p style={{color: currentColors.textMuted}}>All systems operational</p>
+                </div>
+              )}
 
-            {['maintenance', 'team', 'integrations'].includes(activeNav) && (
-              <div className="rounded-lg border p-8 text-center" style={{backgroundColor: currentColors.cardBg, borderColor: currentColors.border}}>
-                <div className="mx-auto mb-4 text-4xl">📋</div>
-                <h3 className="text-xl font-bold mb-2" style={{color: currentColors.text}}>Coming soon</h3>
-                <p style={{color: currentColors.textMuted}}>This section is under development</p>
-              </div>
-            )}
+              {activeNav === 'status' && (
+                <div className="rounded-lg border p-8 text-center" style={{backgroundColor: currentColors.cardBg, borderColor: currentColors.border}}>
+                  <Globe size={48} className="mx-auto mb-4" style={{color: currentColors.textMuted}} />
+                  <h3 className="text-xl font-bold mb-2" style={{color: currentColors.text}}>No status pages</h3>
+                  <p style={{color: currentColors.textMuted}}>Create a status page to share with your users</p>
+                </div>
+              )}
+
+              {['maintenance', 'team', 'integrations'].includes(activeNav) && (
+                <div className="rounded-lg border p-8 text-center" style={{backgroundColor: currentColors.cardBg, borderColor: currentColors.border}}>
+                  <div className="mx-auto mb-4 text-4xl">📋</div>
+                  <h3 className="text-xl font-bold mb-2" style={{color: currentColors.text}}>Coming soon</h3>
+                  <p style={{color: currentColors.textMuted}}>This section is under development</p>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </main>
     </div>
   );
