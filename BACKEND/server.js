@@ -9,13 +9,9 @@ dotenv.config();
 const app = express();
 
 // CORS configuration
+// Reflect the request origin so localhost and any deployed frontend can call the API.
 app.use(cors({
-  origin: [
-    'http://localhost:5173',      // Local development
-    'http://localhost:3000',       // Local testing
-    'https://webwatch-frontend.onrender.com', // Production frontend (update with your frontend URL)
-  ],
-  credentials: true,
+  origin: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
